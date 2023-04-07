@@ -6,12 +6,24 @@ extern "C"	{
 #endif
 
 /** INCLUDES ******************************************************************/
-
+#include "AplusAPP.h"
+#include "wifi.h"
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
-
+// WiFi info
+typedef struct Wifi {
+    bool fConnected;                    // Flag of WiFi connection
+    uint8_t u8Rssi;                     // Most recent RSSI value
+    uint8_t u8Channel;                  // Most recent channel
+    uint8_t au8IpAddr[4];               // IP Address
+    uint8_t au8SubnetMask[4];           // Subnet Mask
+    uint8_t au8Gateway[4];              // Gateway
+    uint8_t au8Dns[4];                  // DNS Address
+} sWiFiInfo;
 
 /** PUBLIC FUNCTION PROTOTYPES ************************************************/
+int8_t Wifi_Init(void);
+int8_t Wifi_Connect();
 
 #ifdef __cplusplus
 }

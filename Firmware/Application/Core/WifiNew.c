@@ -1,11 +1,72 @@
+
+/** INCLUDES ******************************************************************/
+#include "driver_init.h"
+#include "WifiNew.h"
+
+/** VARIABLES *****************************************************************/
+static sWiFiInfo    s_stWiFiInfo;
+
+/** LOCAL (PRIVATE) CONSTANT AND MACRO DEFINITIONS ****************************/
+
+
+/** LOCAL (PRIVATE) TYPEDEFS, STRUCTURES AND ENUMERATIONS *********************/
+
+
+/** LOCAL (PRIVATE) FUNCTION PROTOTYPES ***************************************/
+
+
+/** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
+int8_t Wifi_Init(void) {
+	// Init vars.
+	WIFI_Status_t stmRet;
+
+	// Initialize the WiFi info structure
+	memset((uint8_t *)&s_stWiFiInfo, 0, sizeof(sWiFiInfo));
+
+	// Initalize Wifi stack.
+	stmRet = WIFI_Init();
+	if(stmRet != WIFI_STATUS_OK) { return stmRet; }
+
+	// Set Response.
+	return 0;
+}
+
+int8_t Wifi_Connect(void) {
+	// Init vars.
+	WIFI_Status_t stmRet;
+
+//	memset(&s_stWiFiInfo.au8IpAddr[0], 0, 4);
+//	memset(&s_stWiFiInfo.au8SubnetMask[0], 0, 4);
+//	memset(&s_stWiFiInfo.au8Gateway[0], 0, 4);
+//	memset(&s_stWiFiInfo.au8Dns[0], 0, 4);
+
+	// Attempt connect with hardcode SSID and Password.
+	stmRet = WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK);
+	if(stmRet != WIFI_STATUS_OK) { return stmRet; }
+
+	// Get network information
+	stmRet = WIFI_GetIP_Address(&s_stWiFiInfo.au8IpAddr[0], sizeof(&s_stWiFiInfo.au8IpAddr[0]));
+	if(stmRet != WIFI_STATUS_OK) { return stmRet; }
+//	memcpy(&s_stWiFiInfo.au8IpAddr[0], esWifiObj.NetSettings.IP_Addr, 4);
+//	memcpy(&s_stWiFiInfo.au8SubnetMask[0], esWifiObj.NetSettings.IP_Mask, 4);
+//	memcpy(&s_stWiFiInfo.au8Gateway[0], esWifiObj.NetSettings.Gateway_Addr, 4);
+//	memcpy(&s_stWiFiInfo.au8Dns[0], esWifiObj.NetSettings.DNS1, 4);
+
+	// Set Response.
+	return 0;
+}
+
+/** LOCAL (PRIVATE) FUNCTION IMPLEMENTATIONS **********************************/
+
+
+
+
 //uint8_t  MAC_Addr[6] = {0};
 //  uint8_t  IP_Addr[4] = {0};
 //  uint16_t Datalen;
 //
 
-//  /* Update SSID and PASSWORD with own Access point settings */
-//  #define SSID     "E2"
-//  #define PASSWORD "EyedroOne"
+
 //
 //  const char *url = "hw.darmorgamz.ca";
 //  const char *http_get_request = "POST /index.php HTTP/1.1\r\nHost: hw.darmorgamz.ca\r\nConnection: close\r\n\r\n";
@@ -17,9 +78,6 @@
 //  #define CONNECTION_TRIAL_MAX          10
 
 
-  //  /*Initialize  WIFI module */
-  //  if(WIFI_Init() !=  WIFI_STATUS_OK) { TERMOUT("> ERROR : es-wifi module NOT connected\n");}
-  //  else { TERMOUT("> WIFI Module Initialized.\r\n"); }
   //
   //  if(WIFI_GetMAC_Address(MAC_Addr, sizeof(MAC_Addr)) != WIFI_STATUS_OK) { TERMOUT("> ERROR : CANNOT get MAC address\r\n"); }
   //  else { TERMOUT("> es-wifi module MAC Address : %X:%X:%X:%X:%X:%X\r\n", MAC_Addr[0], MAC_Addr[1], MAC_Addr[2], MAC_Addr[3], MAC_Addr[4], MAC_Addr[5]); }

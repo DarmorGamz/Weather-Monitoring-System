@@ -46,19 +46,42 @@ void AplusAPP_Init(void) {
 	if(timestamp>0) {
 		Timestamp_SetTimestamp(timestamp);
 	}
-	printf("Timestamp Initalized\r\n");
+	printf("Timestamp Initialized\r\n");
 
+	int8_t s8Status = 0;
 
+	s8Status = Wifi_Init();
+	if (s8Status!=0) {
+		printf("Wifi failed to initialize.\r\n");
+		while(1) {}
+	}
+	printf("Wifi initialized.\r\n");
 
 	printf("Application init complete\r\n");
 }
 
 void AplusAPP_Entry(void) {
+	static bool s_fCheckLink = true;
+
 	printf("Entering main state machine\r\n");
 
 	while(1) {
 		// Feed the watchdog every time through this callback - if not, the device will reset after 8 seconds
 		Watchdog_Feed();
+
+		if (s_fCheckLink==true) {
+			// Init vars.
+			int8_t s8Status;
+
+			// Attempt connect to stored SSID.
+			s8Status = Wifi_Connect();
+			if (s8Status!=0) {
+				printf("Wifi to connect.\r\n");
+				while(1) {}
+			}
+			printf("Wifi connected.\r\n");
+			s_fCheckLink = false;
+		}
 
 
 	}
