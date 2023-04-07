@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/DarmorGamz/IoT_Weather_Monitoring_System">
+  <a href="https://github.com/DarmorGamz/IoT-Weather-Monitoring-System">
     <img src="images/icon.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -22,11 +22,11 @@
     STM32 IoT based system to collect and transmit data over the internet. Hardware server to perform data analysis. Backend server to provide a front-facing API. Frontend server to present real-time data to clients(users).
     <br />
     <br />
-    <a href="https://github.com/DarmorGamz/IoT_Weather_Monitoring_System">View Demo</a>
+    <a href="https://github.com/DarmorGamz/IoT-Weather-Monitoring-System">View Demo</a>
     ·
-    <a href="https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/issues">Report Bug</a>
+    <a href="https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/issues">Report Bug</a>
     ·
-    <a href="https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/issues">Request Feature</a>
+    <a href="https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/issues">Request Feature</a>
   </p>
 </div>
 
@@ -122,7 +122,7 @@ Distributed under the GPL License. See `LICENSE.txt` for more information.
 Darren Morrison - darren09@live.ca  
 Carter Glynn - carter.glynn14@gmail.com  
 
-Project Link: [https://github.com/DarmorGamz/IoT_Weather_Monitoring_System](https://github.com/DarmorGamz/IoT_Weather_Monitoring_System)
+Project Link: [https://github.com/DarmorGamz/IoT-Weather-Monitoring-System](https://github.com/DarmorGamz/IoT-Weather-Monitoring-System)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,16 +137,16 @@ Project Link: [https://github.com/DarmorGamz/IoT_Weather_Monitoring_System](http
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/DarmorGamz/IoT_Weather_Monitoring_System.svg?style=for-the-badge
-[contributors-url]: https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/DarmorGamz/IoT_Weather_Monitoring_System.svg?style=for-the-badge
-[forks-url]: https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/network/members
-[stars-shield]: https://img.shields.io/github/stars/DarmorGamz/IoT_Weather_Monitoring_System.svg?style=for-the-badge
-[stars-url]: https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/stargazers
-[issues-shield]: https://img.shields.io/github/issues/DarmorGamz/IoT_Weather_Monitoring_System.svg?style=for-the-badge
-[issues-url]: https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/issues
-[license-shield]: https://img.shields.io/github/license/DarmorGamz/IoT_Weather_Monitoring_System.svg?style=for-the-badge
-[license-url]: https://github.com/DarmorGamz/IoT_Weather_Monitoring_System/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/DarmorGamz/IoT-Weather-Monitoring-System.svg?style=for-the-badge
+[contributors-url]: https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/DarmorGamz/IoT-Weather-Monitoring-System.svg?style=for-the-badge
+[forks-url]: https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/network/members
+[stars-shield]: https://img.shields.io/github/stars/DarmorGamz/IoT-Weather-Monitoring-System.svg?style=for-the-badge
+[stars-url]: https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/stargazers
+[issues-shield]: https://img.shields.io/github/issues/DarmorGamz/IoT-Weather-Monitoring-System.svg?style=for-the-badge
+[issues-url]: https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/issues
+[license-shield]: https://img.shields.io/github/license/DarmorGamz/IoT-Weather-Monitoring-System.svg?style=for-the-badge
+[license-url]: https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/darren--morrison
 [product-screenshot]: images/screenshot.png
