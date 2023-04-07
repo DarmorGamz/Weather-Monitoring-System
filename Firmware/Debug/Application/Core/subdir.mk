@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Application/Core/DataQueue.c \
 ../Application/Core/Debug.c \
 ../Application/Core/Flash.c \
 ../Application/Core/HumiditySensor.c \
@@ -15,6 +16,7 @@ C_SRCS += \
 ../Application/Core/WifiNew.c 
 
 OBJS += \
+./Application/Core/DataQueue.o \
 ./Application/Core/Debug.o \
 ./Application/Core/Flash.o \
 ./Application/Core/HumiditySensor.o \
@@ -25,6 +27,7 @@ OBJS += \
 ./Application/Core/WifiNew.o 
 
 C_DEPS += \
+./Application/Core/DataQueue.d \
 ./Application/Core/Debug.d \
 ./Application/Core/Flash.d \
 ./Application/Core/HumiditySensor.d \
@@ -42,7 +45,7 @@ Application/Core/%.o Application/Core/%.su Application/Core/%.cyclo: ../Applicat
 clean: clean-Application-2f-Core
 
 clean-Application-2f-Core:
-	-$(RM) ./Application/Core/Debug.cyclo ./Application/Core/Debug.d ./Application/Core/Debug.o ./Application/Core/Debug.su ./Application/Core/Flash.cyclo ./Application/Core/Flash.d ./Application/Core/Flash.o ./Application/Core/Flash.su ./Application/Core/HumiditySensor.cyclo ./Application/Core/HumiditySensor.d ./Application/Core/HumiditySensor.o ./Application/Core/HumiditySensor.su ./Application/Core/TempSensor.cyclo ./Application/Core/TempSensor.d ./Application/Core/TempSensor.o ./Application/Core/TempSensor.su ./Application/Core/Timer.cyclo ./Application/Core/Timer.d ./Application/Core/Timer.o ./Application/Core/Timer.su ./Application/Core/Timestamp.cyclo ./Application/Core/Timestamp.d ./Application/Core/Timestamp.o ./Application/Core/Timestamp.su ./Application/Core/Watchdog.cyclo ./Application/Core/Watchdog.d ./Application/Core/Watchdog.o ./Application/Core/Watchdog.su ./Application/Core/WifiNew.cyclo ./Application/Core/WifiNew.d ./Application/Core/WifiNew.o ./Application/Core/WifiNew.su
+	-$(RM) ./Application/Core/DataQueue.cyclo ./Application/Core/DataQueue.d ./Application/Core/DataQueue.o ./Application/Core/DataQueue.su ./Application/Core/Debug.cyclo ./Application/Core/Debug.d ./Application/Core/Debug.o ./Application/Core/Debug.su ./Application/Core/Flash.cyclo ./Application/Core/Flash.d ./Application/Core/Flash.o ./Application/Core/Flash.su ./Application/Core/HumiditySensor.cyclo ./Application/Core/HumiditySensor.d ./Application/Core/HumiditySensor.o ./Application/Core/HumiditySensor.su ./Application/Core/TempSensor.cyclo ./Application/Core/TempSensor.d ./Application/Core/TempSensor.o ./Application/Core/TempSensor.su ./Application/Core/Timer.cyclo ./Application/Core/Timer.d ./Application/Core/Timer.o ./Application/Core/Timer.su ./Application/Core/Timestamp.cyclo ./Application/Core/Timestamp.d ./Application/Core/Timestamp.o ./Application/Core/Timestamp.su ./Application/Core/Watchdog.cyclo ./Application/Core/Watchdog.d ./Application/Core/Watchdog.o ./Application/Core/Watchdog.su ./Application/Core/WifiNew.cyclo ./Application/Core/WifiNew.d ./Application/Core/WifiNew.o ./Application/Core/WifiNew.su
 
 .PHONY: clean-Application-2f-Core
 

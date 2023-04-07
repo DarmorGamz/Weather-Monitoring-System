@@ -36,7 +36,7 @@ ENTRY(Reset_Handler)
 _estack = 0x20018000;    /* end of RAM */
 /* Generate a link error if heap and stack don't fit into RAM */
 _Min_Heap_Size = 0x10000;      /* required amount of heap  */
-_Min_Stack_Size = 0x7000; /* required amount of stack */
+_Min_Stack_Size = 0x4000; /* required amount of stack */
 
 /* Specify the memory areas */
 MEMORY
@@ -45,7 +45,7 @@ RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 96K
 RAM2 (xrw)      : ORIGIN = 0x10000000, LENGTH = 32K
 FLASH (rx)      : ORIGIN = 0x8000000,  LENGTH = 0x40960
 USERCONFIG(rx)  : ORIGIN = 0x8040960,  LENGTH = 0x2048
-STORAGE(rx)     : ORIGIN = 0x8043008,  LENGTH = 0x40960
+STORAGE(rx)     : ORIGIN = 0x8043008,  LENGTH = 0x2048
 }
 
 /* Define output sections */
@@ -76,7 +76,7 @@ SECTIONS
     _etext = .;        /* define a global symbols at end of code */
   } >FLASH
   
-  .userconfig :
+  .userconfig (NOLOAD):
   {
 	  . = ALIGN(4);
 	  __userconfig_start__ = .;
@@ -84,7 +84,7 @@ SECTIONS
 	  __userconfig_end__ = .;
   } > USERCONFIG
   
-  .storage :
+  .storage (NOLOAD):
   {
 	  . = ALIGN(4);
 	  __storage_start__ = .;

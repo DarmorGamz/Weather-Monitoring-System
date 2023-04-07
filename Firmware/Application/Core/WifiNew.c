@@ -35,7 +35,7 @@ int8_t Wifi_Connect(void) {
 	// Init vars.
 	WIFI_Status_t stmRet;
 
-//	memset(&s_stWiFiInfo.au8IpAddr[0], 0, 4);
+	memset(&s_stWiFiInfo.au8IpAddr[0], 0, 4);
 //	memset(&s_stWiFiInfo.au8SubnetMask[0], 0, 4);
 //	memset(&s_stWiFiInfo.au8Gateway[0], 0, 4);
 //	memset(&s_stWiFiInfo.au8Dns[0], 0, 4);
@@ -56,15 +56,12 @@ int8_t Wifi_Connect(void) {
 	return 0;
 }
 
+int8_t Wifi_IsConnected(void) { // Get Ip address does the network layer Is_Connected(). If GetIp fails, it's not connected.
+	return WIFI_GetIP_Address(&s_stWiFiInfo.au8IpAddr[0], sizeof(&s_stWiFiInfo.au8IpAddr[0]));
+}
+
 /** LOCAL (PRIVATE) FUNCTION IMPLEMENTATIONS **********************************/
 
-
-
-
-//uint8_t  MAC_Addr[6] = {0};
-//  uint8_t  IP_Addr[4] = {0};
-//  uint16_t Datalen;
-//
 
 
 //
@@ -77,17 +74,6 @@ int8_t Wifi_Connect(void) {
 //
 //  #define CONNECTION_TRIAL_MAX          10
 
-
-  //
-  //  if(WIFI_GetMAC_Address(MAC_Addr, sizeof(MAC_Addr)) != WIFI_STATUS_OK) { TERMOUT("> ERROR : CANNOT get MAC address\r\n"); }
-  //  else { TERMOUT("> es-wifi module MAC Address : %X:%X:%X:%X:%X:%X\r\n", MAC_Addr[0], MAC_Addr[1], MAC_Addr[2], MAC_Addr[3], MAC_Addr[4], MAC_Addr[5]); }
-  //
-  //  if( WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK) != WIFI_STATUS_OK) { TERMOUT("> ERROR : es-wifi module CANNOT get IP address\r\n"); }
-  //  else { TERMOUT("> es-wifi module connected \r\n"); }
-  //
-  //  if(WIFI_GetIP_Address(IP_Addr, sizeof(IP_Addr)) != WIFI_STATUS_OK) { TERMOUT("> ERROR : es-wifi module CANNOT get IP address\r\n"); }
-  //  else { TERMOUT("> es-wifi module got IP Address : %d.%d.%d.%d\r\n", IP_Addr[0], IP_Addr[1], IP_Addr[2], IP_Addr[3]); }
-  //
   //  if(WIFI_GetHostAddress(url, ipaddr, sizeof(ipaddr)) != WIFI_STATUS_OK) { TERMOUT("> ERROR : es-wifi module CANNOT get Remote IP address\r\n"); }
   //  else { TERMOUT(">IP address for %s is %d.%d.%d.%d\r\n", url, ipaddr[0], ipaddr[1], ipaddr[2], ipaddr[3]); }
   //
@@ -113,12 +99,7 @@ int8_t Wifi_Connect(void) {
   //    float temp_value = 0;  // Measured temperature value
   //    char str_tmp[100] = ""; // Formatted message to display the temperature value
   //
-  //    temp_value = BSP_TSENSOR_ReadTemp();
-  //    int tmpInt1 = temp_value;
-  //    float tmpFrac = temp_value - tmpInt1;
-  //    int tmpInt2 = trunc(tmpFrac * 100);
-  //    snprintf(str_tmp,100," TEMPERATURE = %d.%02d\n\r", tmpInt1, tmpInt2);
-  //    HAL_UART_Transmit(&hDiscoUart,( uint8_t * )str_tmp,sizeof(str_tmp),1000);
+
   //
   //    float hum_value = BSP_HSENSOR_ReadHumidity();
   //    int humInt1 = hum_value;

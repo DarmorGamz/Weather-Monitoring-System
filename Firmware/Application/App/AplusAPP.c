@@ -57,6 +57,17 @@ void AplusAPP_Init(void) {
 	}
 	printf("Wifi initialized.\r\n");
 
+	TempSensor_Init();
+	printf("Temp sensor initialize.\r\n");
+
+	HumiditySensor_Init();
+	printf("Humidity sensor initialize.\r\n");
+
+	DataQueue_Init();
+	printf("Storage queue initialize.\r\n");
+
+
+
 	printf("Application init complete\r\n");
 }
 
@@ -83,6 +94,19 @@ void AplusAPP_Entry(void) {
 			s_fCheckLink = false;
 		}
 
+		// Measurement collection
+		TempSensor_GetData();
+		HumiditySensor_GetData();
+
+		// Determine if it is time to send to the server
+		bool fTimeToSend = false;
+
+		if(DataQueue_GetCount() != 0) { fTimeToSend = true; }
+
+		// Transmit any pending packets/responses to server if it has been determined we need to send
+		if (fTimeToSend==true) {
+
+		}
 
 	}
 }
