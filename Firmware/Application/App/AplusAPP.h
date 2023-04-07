@@ -65,7 +65,7 @@ typedef struct {
 /** PUBLIC FUNCTION PROTOTYPES ************************************************/
 void AplusAPP_Init(void);
 void AplusAPP_Entry(void);
-
+void TimerCallback(TIM_HandleTypeDef*);
 ResetCause_t Get_Reset_Cause(void);
 
 

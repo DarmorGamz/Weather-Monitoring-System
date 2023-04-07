@@ -7,6 +7,7 @@ extern "C"	{
 
 /** INCLUDES ******************************************************************/
 #include "stm32l475e_iot01.h"
+#include "AplusAPP.h"
 #include <stdbool.h>
 #include <time.h>
 

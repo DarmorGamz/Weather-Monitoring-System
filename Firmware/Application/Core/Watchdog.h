@@ -6,7 +6,7 @@ extern "C"	{
 #endif
 
 /** INCLUDES ******************************************************************/
-
+#include "AplusAPP.h"
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
 #define WATCHDOG_TIMEOUT_MS 8000

@@ -1,6 +1,7 @@
-AplusAPP.c:16:6:AplusAPP_Init	3
-AplusAPP.c:74:6:AplusAPP_Entry	3
-AplusAPP.c:119:14:Get_Reset_Cause	7
-AplusAPP.c:148:6:_FlashReadAppUserConfig	2
-AplusAPP.c:157:6:_FlashWriteAppUserConfig	1
-AplusAPP.c:170:6:_InitUserConfig	1
+AplusAPP.c:16:6:TimerCallback	1
+AplusAPP.c:22:6:AplusAPP_Init	3
+AplusAPP.c:81:6:AplusAPP_Entry	4
+AplusAPP.c:117:14:Get_Reset_Cause	7
+AplusAPP.c:146:6:_FlashReadAppUserConfig	2
+AplusAPP.c:155:6:_FlashWriteAppUserConfig	1
+AplusAPP.c:168:6:_InitUserConfig	1

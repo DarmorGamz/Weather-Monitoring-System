@@ -13,6 +13,12 @@ void _InitUserConfig(void);
 
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
+void TimerCallback(TIM_HandleTypeDef *htim) {
+	// Measurement collection
+	TempSensor_GetData();
+	HumiditySensor_GetData();
+}
+
 void AplusAPP_Init(void) {
 	// Initialize the debug log
 	Debug_InitLog();
@@ -66,7 +72,8 @@ void AplusAPP_Init(void) {
 	DataQueue_Init();
 	printf("Storage queue initialize.\r\n");
 
-
+	Timer_Init();
+	printf("Timer initialize.\r\n");
 
 	printf("Application init complete\r\n");
 }
@@ -93,10 +100,6 @@ void AplusAPP_Entry(void) {
 			printf("Wifi connected.\r\n");
 			s_fCheckLink = false;
 		}
-
-		// Measurement collection
-		TempSensor_GetData();
-		HumiditySensor_GetData();
 
 		// Determine if it is time to send to the server
 		bool fTimeToSend = false;

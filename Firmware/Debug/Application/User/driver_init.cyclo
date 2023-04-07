@@ -1,6 +1,5 @@
-driver_init.c:12:6:system_init	1
-driver_init.c:44:13:SystemClock_Config	3
-driver_init.c:80:13:RTCClock_Config	1
-driver_init.c:104:13:Timer_Config	1
-driver_init.c:108:6:HAL_GPIO_EXTI_Callback	2
-driver_init.c:123:6:SPI3_IRQHandler	1
+driver_init.c:10:6:system_init	1
+driver_init.c:41:13:SystemClock_Config	3
+driver_init.c:77:13:RTCClock_Config	1
+driver_init.c:103:6:HAL_GPIO_EXTI_Callback	2
+driver_init.c:118:6:SPI3_IRQHandler	1
