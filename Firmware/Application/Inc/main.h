@@ -22,7 +22,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l475e_iot01.h"
-#include "stm32l475e_iot01_tsensor.h"
 #include "stm32l4xx_hal_iwdg.h"
 #include "stm32l4xx_hal_tim.h"
 

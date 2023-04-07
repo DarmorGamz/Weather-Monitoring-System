@@ -1,2 +1,3 @@
 WifiNew.c:19:8:Wifi_Init	2
 WifiNew.c:34:8:Wifi_Connect	3
+WifiNew.c:59:8:Wifi_IsConnected	1

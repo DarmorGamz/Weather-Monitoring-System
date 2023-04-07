@@ -1,4 +1,5 @@
 "./Application/App/AplusAPP.o"
+"./Application/Core/DataQueue.o"
 "./Application/Core/Debug.o"
 "./Application/Core/Flash.o"
 "./Application/Core/HumiditySensor.o"

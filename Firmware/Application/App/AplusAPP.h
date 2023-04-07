@@ -20,6 +20,9 @@ extern "C"	{
 #include "Flash.h"
 #include "Timer.h"
 #include "WifiNew.h"
+#include "DataQueue.h"
+#include "TempSensor.h"
+#include "HumiditySensor.h"
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
 typedef enum {
@@ -44,6 +47,7 @@ typedef enum {
 #define USER_CONFIG_SPACE_SIZE_BYTES                0x2048
 #define STORAGE_SPACE_SIZE_BYTES                    0x40960
 
+#define READING_BUFF_NUM_BYTES              128
 
 typedef struct {
 	uint16_t  u16InitCode;
