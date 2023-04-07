@@ -1,0 +1,3 @@
+Timestamp.c:18:6:Timestamp_Init	1
+Timestamp.c:36:6:Timestamp_SetTimestamp	1
+Timestamp.c:60:6:Timestamp_GetTimestamp	1
