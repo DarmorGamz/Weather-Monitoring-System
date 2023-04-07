@@ -42,3 +42,6 @@ void DataQueue_Add(eDataType eType, uint8_t u8DataValue, uint8_t u8DataFloat) {
 	// Increase Queue index.
 	s_u16QueueCount++;
 }
+uint16_t DataQueue_GetCount(void) {
+	return s_u16QueueCount;
+}

@@ -3,11 +3,9 @@
 
 RTC_HandleTypeDef hrtc;
 IWDG_HandleTypeDef hiwdg;
-TIM_HandleTypeDef htim;
 
 static void SystemClock_Config(void);
 static void RTCClock_Config(void);
-static void Timer_Config(void);
 
 void system_init(void) {
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -19,7 +17,6 @@ void system_init(void) {
 	/* Configure the rtc clock */
 	RTCClock_Config();
 
-	Timer_Config();
 }
 
 /**
@@ -101,9 +98,7 @@ static void RTCClock_Config(void) {
 		/* Initialization Error */
 	}
 }
-static void Timer_Config(void) {
 
-}
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   switch (GPIO_Pin)

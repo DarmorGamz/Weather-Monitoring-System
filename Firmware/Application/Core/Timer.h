@@ -6,10 +6,9 @@ extern "C"	{
 #endif
 
 /** INCLUDES ******************************************************************/
-
+#include "AplusAPP.h"
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
-
 
 /** PUBLIC FUNCTION PROTOTYPES ************************************************/
 int16_t  Timer_Init(void);

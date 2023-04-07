@@ -28,6 +28,7 @@ extern tsData	g_acReadingBuffer[];
 /** PUBLIC FUNCTION PROTOTYPES ************************************************/
 void DataQueue_Init(void);
 void DataQueue_Add(eDataType, uint8_t, uint8_t);
+uint16_t DataQueue_GetCount(void);
 
 #ifdef __cplusplus
 }
