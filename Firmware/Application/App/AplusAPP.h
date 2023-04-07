@@ -19,6 +19,7 @@ extern "C"	{
 #include "Watchdog.h"
 #include "Flash.h"
 #include "Timer.h"
+#include "WifiNew.h"
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
 typedef enum {
@@ -49,6 +50,11 @@ typedef struct {
 	uint16_t  u16CfgSize;
 	uint8_t   au8Timestamp[4];
 } AplusUserConfig;
+
+
+/* Update SSID and PASSWORD with own Access point settings */
+#define SSID     "E2"
+#define PASSWORD "EyedroOne"
 
 
 
