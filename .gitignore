@@ -56,3 +56,8 @@ dkms.conf
 
 # Directories
 Firmware/Debug/
+Backend/phpMyAdmin/
+Backend/.idea/
+Backend/Public/
+Backend/index.php
+Backend/index2.php
