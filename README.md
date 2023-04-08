@@ -71,7 +71,7 @@
  
 [![HTML.com]][HTML-url] [![CSS3.com]][CSS3-url] [![JavaScript.com]][JavaScript-url]
 
-[![PHP.com]][PHP-url] [![Linux.com]][Linux-url] [![AWS.com]][AWS-url]
+[![PHP.com]][PHP-url] [![MYSQL.com]][MYSQL-url] [![Linux.com]][Linux-url] [![AWS.com]][AWS-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
