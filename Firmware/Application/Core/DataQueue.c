@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        DataQueue.c
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Common data queue functionality for the product firmware.
+ ******************************************************************************/
+
 /** INCLUDES ******************************************************************/
 #include <string.h>
 #include <stdio.h>
@@ -5,9 +16,11 @@
 #include "AplusApp.h"
 #include "DataQueue.h"
 
+
 /** VARIABLES *****************************************************************/
 static uint16_t   s_u16QueueCount;
 tsData 				g_acReadingBuffer[READING_BUFF_NUM_BYTES];
+
 
 /** LOCAL (PRIVATE) STRUCTURES AND ENUMERATIONS *******************************/
 
@@ -16,12 +29,27 @@ tsData 				g_acReadingBuffer[READING_BUFF_NUM_BYTES];
 
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
+
+/**************************************************************************//**
+ *  Initializes Data queue for use.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void DataQueue_Init(void) {
 	// Clear the contents of the reading queue
 	memset(&g_acReadingBuffer[0], 0, READING_BUFF_NUM_BYTES);
 	s_u16QueueCount = 0;
 }
 
+/**************************************************************************//**
+ *  Main processing loop for the product application
+ *  @param[in]  eDataType Data Type .
+ *  @param[in]  uint8_t Magnitude of data value.
+ *  @param[in]  uint8_t Floating point of data value.
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void DataQueue_Add(eDataType eType, uint8_t u8DataValue, uint8_t u8DataFloat) {
 	// Init vars.
 	tsData tsTempData;
@@ -43,6 +71,13 @@ void DataQueue_Add(eDataType eType, uint8_t u8DataValue, uint8_t u8DataFloat) {
 	s_u16QueueCount++;
 }
 
+/**************************************************************************//**
+ *  Sends Data from the queue.
+ *  @param[in]  char* Pointer of send buffer.
+ *  @param[in]  uint16_t Maximum amount of bytes to be sent.
+ *  @param[out] None
+ *  @return     uint16_t Bytes being sent.
+ ******************************************************************************/
 uint16_t DataQueue_Send(char *pDst, uint16_t maxBytes) {
     // Init vars.
     uint16_t u16BytesSent = 0;
@@ -88,6 +123,12 @@ uint16_t DataQueue_Send(char *pDst, uint16_t maxBytes) {
     return u16BytesSent;
 }
 
+/**************************************************************************//**
+ *  Returns Data queue count.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     uint16_t Data queue count.
+ ******************************************************************************/
 uint16_t DataQueue_GetCount(void) {
 	return s_u16QueueCount;
 }

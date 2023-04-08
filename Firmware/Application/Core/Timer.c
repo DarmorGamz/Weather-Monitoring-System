@@ -1,6 +1,18 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        Timer.c
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Common timer functionality for the product firmware.
+ ******************************************************************************/
+
 /** INCLUDES ******************************************************************/
 #include "driver_init.h"
 #include "Timer.h"
+
 
 /** VARIABLES *****************************************************************/
 
@@ -11,11 +23,18 @@
 /** LOCAL (PRIVATE) TYPEDEFS, STRUCTURES AND ENUMERATIONS *********************/
 TIM_HandleTypeDef htim;
 
+
 /** LOCAL (PRIVATE) FUNCTION PROTOTYPES ***************************************/
 
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
 
+/**************************************************************************//**
+ *  Initializes timer(s) for use.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 int16_t Timer_Init(void) {
 	__HAL_RCC_TIM2_CLK_ENABLE(); // Enable the clock for the TIM2 peripheral
 
@@ -37,13 +56,24 @@ int16_t Timer_Init(void) {
 
 
 /** LOCAL (PRIVATE) FUNCTION IMPLEMENTATIONS **********************************/
+
+/**************************************************************************//**
+ *  Timer2 interrupt handler
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void TIM2_IRQHandler(void) {
     HAL_TIM_IRQHandler(&htim);
 }
 
+/**************************************************************************//**
+ *  Counting timer elapse callback.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == TIM2) {
-        TimerCallback(htim);
-    }
+    if (htim->Instance == TIM2) { TimerCallback(htim); }
 }
 
