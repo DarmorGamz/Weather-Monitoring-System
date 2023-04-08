@@ -52,7 +52,7 @@ typedef enum {
 typedef struct {
 	uint16_t  u16InitCode;
 	uint16_t  u16CfgSize;
-	uint8_t   au8Timestamp[4];
+	uint32_t  u32Timestamp;
 } AplusUserConfig;
 
 
@@ -67,6 +67,8 @@ void AplusAPP_Init(void);
 void AplusAPP_Entry(void);
 void TimerCallback(TIM_HandleTypeDef*);
 ResetCause_t Get_Reset_Cause(void);
+
+void SetSystemTime(uint32_t );
 
 
 #ifdef __cplusplus
