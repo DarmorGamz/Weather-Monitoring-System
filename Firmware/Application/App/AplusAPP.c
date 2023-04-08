@@ -98,6 +98,7 @@ void AplusAPP_Entry(void) {
 				while(1) {}
 			}
 			printf("Wifi connected.\r\n");
+			Watchdog_Feed();
 			s_fCheckLink = false;
 		}
 
@@ -108,7 +109,8 @@ void AplusAPP_Entry(void) {
 
 		// Transmit any pending packets/responses to server if it has been determined we need to send
 		if (fTimeToSend==true) {
-
+			printf("Wifi to Send.\r\n");
+			Wifi_Send();
 		}
 
 	}

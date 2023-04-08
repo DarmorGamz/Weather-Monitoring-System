@@ -21,11 +21,14 @@ typedef struct Wifi {
     uint8_t au8Dns[4];                  // DNS Address
 } sWiFiInfo; // STM32 Wifi stack sucks, Can't get anything but IP address from connected network.
 
+
 /** PUBLIC FUNCTION PROTOTYPES ************************************************/
 int8_t Wifi_Init(void);
 int8_t Wifi_Connect();
 
 int8_t Wifi_IsConnected(void);
+
+void Wifi_Send(void);
 
 #ifdef __cplusplus
 }

@@ -42,6 +42,52 @@ void DataQueue_Add(eDataType eType, uint8_t u8DataValue, uint8_t u8DataFloat) {
 	// Increase Queue index.
 	s_u16QueueCount++;
 }
+
+uint16_t DataQueue_Send(char *pDst, uint16_t maxBytes) {
+    // Init vars.
+    uint16_t u16BytesSent = 0;
+    uint16_t i = 0;
+
+    while (i < s_u16QueueCount && u16BytesSent < maxBytes) {
+        char temp_str[64]; // Temporary string buffer to store the formatted data
+        int n = snprintf(temp_str, sizeof(temp_str),
+                 "Type:%d,Value:%u,Float:%u,Timestamp:%lu;",
+                 g_acReadingBuffer[i].eType,
+                 g_acReadingBuffer[i].u8DataValue,
+                 g_acReadingBuffer[i].u8DataFloat,
+                 g_acReadingBuffer[i].u32Timestamp);
+
+        // Calculate the remaining space in pDst buffer.
+        uint16_t remaining_space = maxBytes - u16BytesSent;
+
+        // Concatenate temp_str to pDst, but do not exceed maxBytes.
+        strncat(pDst + u16BytesSent, temp_str, remaining_space - 1);
+
+        // Update the bytes sent counter.
+        if (n < remaining_space) {
+            u16BytesSent += n;
+
+            // Shift the elements of the array to the left.
+            for (int j = 0; j < s_u16QueueCount - 1; j++) {
+                g_acReadingBuffer[j] = g_acReadingBuffer[j + 1];
+            }
+
+            // Reduce queue count.
+            s_u16QueueCount--;
+        } else {
+            u16BytesSent = maxBytes;
+        }
+    }
+
+//    // Null-terminate the pDst buffer if there's space left.
+//    if (u16BytesSent < maxBytes) {
+//        pDst[u16BytesSent] = '\0';
+//    }
+
+    // Return Bytes sent.
+    return u16BytesSent;
+}
+
 uint16_t DataQueue_GetCount(void) {
 	return s_u16QueueCount;
 }
