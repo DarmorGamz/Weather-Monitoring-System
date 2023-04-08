@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        Flash.h
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Header file for common NVM flash memory functionality.
+ ******************************************************************************/
+
 #ifndef FLASH_H_
 #define FLASH_H_
 

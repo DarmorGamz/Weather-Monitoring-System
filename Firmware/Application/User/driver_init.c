@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        driver_init.c
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Common driver functionality for the product firmware.
+ ******************************************************************************/
+
 #include "driver_init.h"
 
 

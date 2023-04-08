@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        TempSensor.c
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Common temperature sensor functionality for the product firmware.
+ ******************************************************************************/
+
 /** INCLUDES ******************************************************************/
 #include "driver_init.h"
 #include "AplusApp.h"
@@ -17,18 +28,39 @@
 
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
+
+/**************************************************************************//**
+ *  Initializes temperature sensor for use.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void TempSensor_Init(void) {
 	BSP_TSENSOR_Init();
 }
 
-void TempSensor_GetData(void) {
-	float temp_value = 0;  // Measured temperature value
-	temp_value = BSP_TSENSOR_ReadTemp();
-	uint8_t tmpInt1 = temp_value;
-	float tmpFrac = temp_value - tmpInt1;
-	uint8_t tmpInt2 = trunc(tmpFrac * 100);
 
-	DataQueue_Add(DATA_TYPE_TEMP, tmpInt1, tmpInt2);
+/**************************************************************************//**
+ *  Gets current sensor reading and adds to Data queue.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
+void TempSensor_GetData(void) {
+	// Init vars.
+	float fTemperatureValue = 0;  // Measured temperature value
+
+	// Get value.
+	fTemperatureValue = BSP_TSENSOR_ReadTemp();
+
+	// Data analysis.
+	uint8_t u8TemperatureInt1 = fTemperatureValue;
+	float fTemperatureDecimal = fTemperatureValue - u8TemperatureInt1;
+	uint8_t u8TemperatureInt2 = trunc(fTemperatureDecimal * 100);
+
+	// Add to data queue.
+	DataQueue_Add(DATA_TYPE_TEMP, u8TemperatureInt1, u8TemperatureInt2);
+
 }
 
 /** LOCAL (PRIVATE) FUNCTION IMPLEMENTATIONS **********************************/

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        Debug.c
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Common development debug functionality for the product firmware.
+ ******************************************************************************/
+
 /** INCLUDES ******************************************************************/
 #include "Debug.h"
 
@@ -15,6 +26,13 @@ PUTCHAR_PROTOTYPE {
 
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
+
+/**************************************************************************//**
+ *  Initializes Debug log for development.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void Debug_InitLog() {
 	/* Initialize all configured peripherals */
 	  hDiscoUart.Instance = DISCOVERY_COM1;

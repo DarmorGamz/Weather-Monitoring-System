@@ -1,6 +1,18 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        Timestamp.c
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Common RTC (timestamp) functionality for the product firmware.
+ ******************************************************************************/
+
 /** INCLUDES ******************************************************************/
 #include "driver_init.h"
 #include "Timestamp.h"
+
 
 /** VARIABLES *****************************************************************/
 
@@ -15,6 +27,13 @@
 
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
+
+/**************************************************************************//**
+ *  Initializes RTC (timestamp) for use.
+ *  @param[in]  None
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
 void Timestamp_Init(void) {
 	// Configure the RTC
 	hrtc.Instance = RTC;
@@ -33,13 +52,19 @@ void Timestamp_Init(void) {
 	__HAL_RCC_RTC_ENABLE();
 }
 
-bool Timestamp_SetTimestamp(uint32_t timestamp) {
+/**************************************************************************//**
+ *  Sets the system time.
+ *  @param[in]  uint32_t Timestamp (epoch) to set RTC as.
+ *  @param[out] None
+ *  @return     bool Set timestamp successful.
+ ******************************************************************************/
+bool Timestamp_SetTimestamp(uint32_t u32Timestamp) {
     RTC_DateTypeDef date;
     RTC_TimeTypeDef time;
     struct tm tm;
 
     // Convert the epoch timestamp to tm struct
-    time_t t = (time_t)timestamp;
+    time_t t = (time_t)u32Timestamp;
     struct tm *tmp = gmtime(&t);
     tm = *tmp;
 
@@ -56,10 +81,18 @@ bool Timestamp_SetTimestamp(uint32_t timestamp) {
     HAL_RTC_SetDate(&hrtc, &date, RTC_FORMAT_BIN);
     HAL_RTC_SetTime(&hrtc, &time, RTC_FORMAT_BIN);
 
+    // Return success.
     return true;
 }
 
-void Timestamp_GetTimestamp(uint32_t *timestamp) {
+
+/**************************************************************************//**
+ *  Get the current system time
+ *  @param[in]  uint32_t* Location to store timestamp.
+ *  @param[out] None
+ *  @return     Nothing
+ ******************************************************************************/
+void Timestamp_GetTimestamp(uint32_t* u32Timestamp) {
 	RTC_DateTypeDef date;
 	RTC_TimeTypeDef time;
 	struct tm tm;
@@ -76,5 +109,5 @@ void Timestamp_GetTimestamp(uint32_t *timestamp) {
 	tm.tm_min = time.Minutes;
 	tm.tm_sec = time.Seconds;
 
-	*timestamp = (uint32_t)mktime(&tm);
+	*u32Timestamp = (uint32_t)mktime(&tm);
 }

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        Timestamp.h
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Header file for real-time clock initalization.
+ ******************************************************************************/
+
 #ifndef TIMESTAMP_H_
 #define TIMESTAMP_H_
 
@@ -10,6 +21,7 @@ extern "C"	{
 #include "AplusAPP.h"
 #include <stdbool.h>
 #include <time.h>
+
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
 #define RTC_MINIMUM_TIMESTAMP   1577836800  // 01-Jan-2020 00:00:00

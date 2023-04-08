@@ -1,3 +1,14 @@
+/*******************************************************************************
+ *                              C O P Y R I G H T  (c)
+ *                                 D A R M O R ™
+ *                             All Rights Reserved
+ *******************************************************************************
+ * @file        AplusAPP.h
+ * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
+ * @author      Darren Morrison
+ * @brief       Main header file for product firmware.
+ ******************************************************************************/
+
 #ifndef APLUSAPP_H_
 #define APLUSAPP_H_
 
@@ -37,7 +48,6 @@ typedef enum {
 } ResetCause_t;
 
 #define USER_CONFIG_INIT_CODE                0x5A5A
-
 
 #define APPLICATION_SPACE_ORIGIN                    0x8000000
 #define USER_CONFIG_SPACE_ORIGIN                    0x8040960
