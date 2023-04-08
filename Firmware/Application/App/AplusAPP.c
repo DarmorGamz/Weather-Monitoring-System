@@ -35,9 +35,6 @@ void AplusAPP_Init(void) {
 	Timestamp_Init();
 	printf("RTC initialized\r\n");
 
-	uint32_t new_timestamp = 1680554930;
-	Timestamp_SetTimestamp(new_timestamp);
-
 	// Initialize flash - where user configuration is stored
 	Flash_Init();
 	printf("Flash initialized\r\n");
@@ -48,7 +45,7 @@ void AplusAPP_Init(void) {
 
 	 // Set current time from the last timestamp stored in flash.
 	uint32_t timestamp;
-	memcpy(&timestamp, &g_stUserConfig.au8Timestamp[0], 4);
+	timestamp = g_stUserConfig.u32Timestamp;
 	if(timestamp>0) {
 		Timestamp_SetTimestamp(timestamp);
 	}
@@ -115,6 +112,10 @@ void AplusAPP_Entry(void) {
 
 	}
 }
+void SetSystemTime(uint32_t timestamp) {
+	Timestamp_SetTimestamp(timestamp);
+	_FlashWriteAppUserConfig();
+}
 
 ResetCause_t Get_Reset_Cause(void) {
     ResetCause_t cause;
@@ -158,12 +159,10 @@ void _FlashWriteAppUserConfig(void) {
 	// Set timestamp
 	uint32_t timestamp;
 	Timestamp_GetTimestamp(&timestamp);
-	memcpy(&g_stUserConfig.au8Timestamp[0], &timestamp, 4);
+	g_stUserConfig.u32Timestamp = timestamp;
 
-	printf("Erase Flash\r\n");
 	Flash_EraseFlash(USER_CONFIG_SPACE_ORIGIN, USER_CONFIG_SPACE_SIZE_BYTES);
 
-	printf("Write Flash\r\n");
 	Flash_WriteFlash(USER_CONFIG_SPACE_ORIGIN, (char*)&g_stUserConfig, sizeof(AplusUserConfig));
 }
 

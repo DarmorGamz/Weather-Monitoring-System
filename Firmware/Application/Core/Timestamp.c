@@ -16,9 +16,6 @@
 
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
 void Timestamp_Init(void) {
-	// Enable the RTC Clock
-	__HAL_RCC_RTC_ENABLE();
-
 	// Configure the RTC
 	hrtc.Instance = RTC;
 	hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
@@ -31,30 +28,35 @@ void Timestamp_Init(void) {
 	if (HAL_RTC_Init(&hrtc) != HAL_OK) {
 		/* Initialization Error */
 	}
+
+	// Enable the RTC Clock
+	__HAL_RCC_RTC_ENABLE();
 }
 
 bool Timestamp_SetTimestamp(uint32_t timestamp) {
-	RTC_DateTypeDef date;
-	RTC_TimeTypeDef time;
-	struct tm *tm;
+    RTC_DateTypeDef date;
+    RTC_TimeTypeDef time;
+    struct tm tm;
 
-	// Convert the epoch timestamp to tm struct
-	tm = localtime((time_t *)&timestamp);
+    // Convert the epoch timestamp to tm struct
+    time_t t = (time_t)timestamp;
+    struct tm *tmp = gmtime(&t);
+    tm = *tmp;
 
-	// Populate the date and time structs
-	date.Year = tm->tm_year - 100;
-	date.Month = tm->tm_mon + 1;
-	date.Date = tm->tm_mday;
+    // Populate the date and time structs
+    date.Year = tm.tm_year - 100;
+    date.Month = tm.tm_mon + 1;
+    date.Date = tm.tm_mday;
 
-	time.Hours = tm->tm_hour;
-	time.Minutes = tm->tm_min;
-	time.Seconds = tm->tm_sec;
+    time.Hours = tm.tm_hour;
+    time.Minutes = tm.tm_min;
+    time.Seconds = tm.tm_sec;
 
-	// Set the RTC date and time
-	HAL_RTC_SetDate(&hrtc, &date, RTC_FORMAT_BIN);
-	HAL_RTC_SetTime(&hrtc, &time, RTC_FORMAT_BIN);
+    // Set the RTC date and time
+    HAL_RTC_SetDate(&hrtc, &date, RTC_FORMAT_BIN);
+    HAL_RTC_SetTime(&hrtc, &time, RTC_FORMAT_BIN);
 
-	return true;
+    return true;
 }
 
 void Timestamp_GetTimestamp(uint32_t *timestamp) {
@@ -74,5 +76,5 @@ void Timestamp_GetTimestamp(uint32_t *timestamp) {
 	tm.tm_min = time.Minutes;
 	tm.tm_sec = time.Seconds;
 
-	*timestamp = mktime(&tm);
+	*timestamp = (uint32_t)mktime(&tm);
 }

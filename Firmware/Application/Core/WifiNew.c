@@ -130,8 +130,12 @@ void Wifi_Send(void) {
 	response_payload_start += 4; // Move the pointer past the "\r\n\r\n" sequence.
 
 	// Process the payload
-	printf("Payload: %s\r\n", response_payload_start);
 
+	printf("Payload: %s\r\n", response_payload_start);
+	uint32_t timestamp;
+	sscanf(response_payload_start, "%lu", &timestamp);
+
+	SetSystemTime(timestamp);
 }
 
 int8_t Wifi_IsConnected(void) { // Get Ip address does the network layer Is_Connected(). If GetIp fails, it's not connected.
@@ -139,53 +143,3 @@ int8_t Wifi_IsConnected(void) { // Get Ip address does the network layer Is_Conn
 }
 
 /** LOCAL (PRIVATE) FUNCTION IMPLEMENTATIONS **********************************/
-
-
-
-//
-//  const char *url = "hw.darmorgamz.ca";
-//  const char *http_get_request = "POST /index.php HTTP/1.1\r\nHost: hw.darmorgamz.ca\r\nConnection: close\r\n\r\n";
-//  uint8_t ipaddr[4];
-//
-//  #define WIFI_WRITE_TIMEOUT 10000
-//  #define WIFI_READ_TIMEOUT  10000
-//
-//  #define CONNECTION_TRIAL_MAX          10
-
-  //  if(WIFI_GetHostAddress(url, ipaddr, sizeof(ipaddr)) != WIFI_STATUS_OK) { TERMOUT("> ERROR : es-wifi module CANNOT get Remote IP address\r\n"); }
-  //  else { TERMOUT(">IP address for %s is %d.%d.%d.%d\r\n", url, ipaddr[0], ipaddr[1], ipaddr[2], ipaddr[3]); }
-  //
-  //  while (1) {
-  //    if( WIFI_OpenClientConnection(0, WIFI_TCP_PROTOCOL, "TCP_CLIENT", ipaddr, 80, 80) != WIFI_STATUS_OK) { TERMOUT("> ERROR : es-wifi module open socket connection\r\n"); continue; }
-  //
-  //    if(WIFI_SendData(0, (uint8_t *)http_get_request, strlen(http_get_request), &Datalen, WIFI_WRITE_TIMEOUT) != WIFI_STATUS_OK) { TERMOUT("> ERROR : Failed to Send Data, connection closed\r\n");}
-  //    else { TERMOUT("> Sent Data Success: %d \r\n", Datalen); }
-  //
-  //    static uint8_t RxData [500];
-  //    uint16_t ReceivedDataLength;
-  //
-  //    if (WIFI_ReceiveData(0, RxData, sizeof(RxData), &ReceivedDataLength, WIFI_READ_TIMEOUT) != WIFI_STATUS_OK) { TERMOUT("> ERROR : Failed to Receive Data\r\n"); }
-  //    else {
-  //        TERMOUT("> Received Data: \r\n");
-  //        for (int i = 0; i < ReceivedDataLength; i++) {
-  //            TERMOUT("%c", RxData[i]);
-  //        }
-  //        TERMOUT("\r\n");
-  //    }
-  //
-  //    if(WIFI_CloseClientConnection(0) != WIFI_STATUS_OK) {  TERMOUT("> ERROR : Failed to close socket\r\n"); }
-  //    float temp_value = 0;  // Measured temperature value
-  //    char str_tmp[100] = ""; // Formatted message to display the temperature value
-  //
-
-  //
-  //    float hum_value = BSP_HSENSOR_ReadHumidity();
-  //    int humInt1 = hum_value;
-  //    float humFrac = hum_value - humInt1;
-  //    int humInt2 = trunc(humFrac * 100);
-  //    char str_hum[100];
-  //    snprintf(str_hum, 100, " HUMIDITY = %d.%02d\n\r", humInt1, humInt2);
-  //    HAL_UART_Transmit(&hDiscoUart, (uint8_t *)str_hum, strlen(str_hum), 1000);
-  //
-  //    HAL_Delay(1000);
-  //  }
