@@ -144,11 +144,32 @@ final class ApiAccess {
             if(!$this->GetInputVar('DataType', $iDataType)) { $this->SetError(2, "Invalid Input vars."); return false; }
             $aVarsIn['DataType'] = (int)$iDataType;
 
-            // Get Data.
-            if(!$oData->DataGsad("Data.Get", $aVarsIn, $aVarsOut) || !isset($aVarsOut['Data'])) { $this->SetError(2, "Data.Get Failed."); return false; }
+            if($aVarsIn['DataType'] != 10) {
+                // Get Data.
+                if(!$oData->DataGsad("Data.Get", $aVarsIn, $aVarsOut) || !isset($aVarsOut['Data'])) { $this->SetError(2, "Data.Get Failed."); return false; }
 
-            // Set Response.
-            $this->aResp['Data'] = $aVarsOut['Data'];
+                // Set Response.
+                $this->aResp['Data'] = $aVarsOut['Data'];
+
+            } else {
+                $apiUrl = 'http://api.weatherapi.com/v1/current.json?key=d42a68e851d7453c8d6165458230904&q=Toronto'; // Replace this with the target API URL
+                $postData = file_get_contents('php://input');
+
+                $ch = curl_init($apiUrl);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                        'Content-Type: application/json',
+                        'Content-Length: ' . strlen($postData))
+                );
+
+                $response = curl_exec($ch);
+                curl_close($ch);
+
+                $this->aResp['Weather'] = json_decode($response);
+            }
+
         } else { return false; }
 
 
