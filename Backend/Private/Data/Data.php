@@ -33,11 +33,18 @@ final class Data {
 
             // Get User.
             if(!$this->oDb->DataGsad("Get", $aVarsIn1, $aVarsOut1) || !isset($aVarsOut1['Data'])) { /* Error */ return false; }
-            $aVarsOut['Data']['Temperature'] = [];
+
+            // Reverse the data array
             $aVarsOut1['Data'] = array_reverse($aVarsOut1['Data']);
-            foreach($aVarsOut1['Data'] as $Data) {
-                $aVarsOut['Data']['Temperature'][] = ['y'=>(float)$Data['Value'], 'x'=>$Data['DateMsUtc']*1000];
+
+            // Iterate through the reversed data array and update the initialized array
+            $aTemperatureData = [];
+            foreach ($aVarsOut1['Data'] as $Data) {
+                    $aTemperatureData[] = ['y' => (float)$Data['Value'], 'x' => $Data['DateMsUtc'] * 1000];
             }
+
+            // Set the output data array
+            $aVarsOut['Data']['Values'] = $aTemperatureData;
 
         } else if("Data.GetList" == $sCmd) {
 
@@ -88,12 +95,10 @@ class DataDb extends Db {
             $iDataType = $aVarsIn['DataType'];
 
 
-            $sQry = "SELECT * FROM WeatherData WHERE 1 AND DataType={$iDataType} AND DateMsUtc<{$aVarsIn['DateMsUtcStop']} AND DateMsUtc>{$aVarsIn['DateMsUtcStart']} ORDER BY Id DESC LIMIT 900";
-
+            $sQry = "SELECT * FROM WeatherData WHERE 1 AND DataType={$iDataType} AND DateMsUtc<={$aVarsIn['DateMsUtcStop']} AND DateMsUtc>={$aVarsIn['DateMsUtcStart']} ORDER BY Id DESC LIMIT 900";
             if(($oRes = $this->oDb->query($sQry)) === false) { /* Error */ return false; }
-            while($aRow = $oRes->fetch_assoc()) {
-                $aVarsOut['Data'][] = $aRow;
-            }
+            while($aRow = $oRes->fetch_assoc()) { $aVarsOut['Data'][] = $aRow; }
+
         } else if("Set" == $sCmd) {
 
         } else if("Add" == $sCmd) {
