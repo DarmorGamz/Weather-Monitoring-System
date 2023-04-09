@@ -54,9 +54,13 @@ void TempSensor_GetData(void) {
 	fTemperatureValue = BSP_TSENSOR_ReadTemp();
 
 	// Data analysis.
-	uint8_t u8TemperatureInt1 = fTemperatureValue;
+	int u8TemperatureInt1 = fTemperatureValue;
 	float fTemperatureDecimal = fTemperatureValue - u8TemperatureInt1;
-	uint8_t u8TemperatureInt2 = trunc(fTemperatureDecimal * 100);
+	int u8TemperatureInt2 = trunc(fTemperatureDecimal * 100);
+
+	// Print the separated values.
+	printf("Whole part: %d\r\n", u8TemperatureInt1);
+	printf("Decimal part (scaled): %d\r\n", u8TemperatureInt2);
 
 	// Add to data queue.
 	DataQueue_Add(DATA_TYPE_TEMP, u8TemperatureInt1, u8TemperatureInt2);

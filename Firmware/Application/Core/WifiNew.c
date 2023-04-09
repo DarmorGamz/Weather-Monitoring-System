@@ -124,7 +124,7 @@ void Wifi_Send(void) {
 
 
 	char* cpContentLengthPlaceholder = strstr(pTxDst, "Content-Length: %u");
-	if (cpContentLengthPlaceholder != NULL) { printf("Content length wasn't found.\r\n"); return; }
+	if (cpContentLengthPlaceholder == NULL) { printf("Content length wasn't found.\r\n"); return; }
 
 	char acNewContentLength[32];
 	snprintf(acNewContentLength, sizeof(acNewContentLength), "Content-Length: %u\r\n\r\n", u16ReadingBytes);

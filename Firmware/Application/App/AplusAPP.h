@@ -34,6 +34,7 @@ extern "C"	{
 #include "DataQueue.h"
 #include "TempSensor.h"
 #include "HumiditySensor.h"
+#include "PressureSensor.h"
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
 typedef enum {

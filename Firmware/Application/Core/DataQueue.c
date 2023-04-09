@@ -45,12 +45,12 @@ void DataQueue_Init(void) {
 /**************************************************************************//**
  *  Main processing loop for the product application
  *  @param[in]  eDataType Data Type .
- *  @param[in]  uint8_t Magnitude of data value.
- *  @param[in]  uint8_t Floating point of data value.
+ *  @param[in]  int Magnitude of data value.
+ *  @param[in]  int Floating point of data value.
  *  @param[out] None
  *  @return     Nothing
  ******************************************************************************/
-void DataQueue_Add(eDataType eType, uint8_t u8DataValue, uint8_t u8DataFloat) {
+void DataQueue_Add(eDataType eType, int u8DataValue, int u8DataFloat) {
 	// Init vars.
 	tsData tsTempData;
 
@@ -86,7 +86,7 @@ uint16_t DataQueue_Send(char *pDst, uint16_t maxBytes) {
     while (i < s_u16QueueCount && u16BytesSent < maxBytes) {
         char temp_str[64]; // Temporary string buffer to store the formatted data
         int n = snprintf(temp_str, sizeof(temp_str),
-                 "Type:%d,Value:%u,Float:%u,Timestamp:%lu;",
+                 "Type:%d,Value:%d,Float:%d,Timestamp:%lu;",
                  g_acReadingBuffer[i].eType,
                  g_acReadingBuffer[i].u8DataValue,
                  g_acReadingBuffer[i].u8DataFloat,
