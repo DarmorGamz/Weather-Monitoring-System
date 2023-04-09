@@ -138,6 +138,13 @@ final class ApiAccess {
         // Init vars.
         $aVarsIn = $aVarsOut = [];
         if($sCmd == 'Data.Get') {
+            // Init vars.
+            $iDataType = 0;
+
+            if(!$this->GetInputVar('DataType', $iDataType)) { $this->SetError(2, "Invalid Input vars."); return false; }
+            $aVarsIn['DataType'] = (int)$iDataType;
+
+            // Get Data.
             if(!$oData->DataGsad("Data.Get", $aVarsIn, $aVarsOut) || !isset($aVarsOut['Data'])) { $this->SetError(2, "Data.Get Failed."); return false; }
 
             // Set Response.
@@ -172,6 +179,13 @@ final class ApiAccess {
                 if(!isset($this->aIpVar['PasswordOld']) || empty($this->aIpVar['PasswordOld']) || strlen($this->aIpVar['PasswordOld']) > 25) return false;
                 // Returns the valid email.
                 $IpVarOut = $this->aIpVar['PasswordOld'];
+                break;
+            case "DataType":
+                // Checks if Datatype is valid.
+                if(!isset($this->aIpVar['DataType'])) return false;
+
+                // Returns the valid DataType.
+                $IpVarOut = $this->aIpVar['DataType'];
                 break;
             default:
                 return false;

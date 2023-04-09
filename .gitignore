@@ -61,3 +61,8 @@ Backend/.idea/
 Backend/Public/
 Backend/index.php
 Backend/index2.php
+
+Frontend/Private/
+Frontend/phpMyAdmin/
+Frontend/.idea/
+Frontend/api.php
