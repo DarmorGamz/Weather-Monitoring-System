@@ -29,7 +29,7 @@ function sendPostRequest() {
         .then(response => response.json())
         .then(json => {
             const data = json.Data;
-            HumidityPoints = data.Temperature;
+            HumidityPoints = data.Values;
 
         })
         .catch(error => console.error(error));
@@ -102,7 +102,7 @@ function highchartSetup() {
         },
         yAxis: {
             title: {
-                text: 'gm^-3'
+                text: '% RH'
             },
             labels: {
                 format: '{value:.2f}'

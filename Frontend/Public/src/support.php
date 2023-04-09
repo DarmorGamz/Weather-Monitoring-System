@@ -9,11 +9,13 @@
 
     <link rel="stylesheet" type="text/css" href="../assets/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/hamburgermenu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/sessionkeycheck.js"></script>
+    <script src="../assets/js/contact.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -52,12 +54,13 @@
         <div class="login-button">
             <span id="UserEmail"></span>
             <span class="tooltip" data-tooltip="Logout">
-                    <button id="login-button">
-                    <i class="fas fa-lock"></i>
-                </button>
+                    <button id="login-button"><i class="fas fa-lock"></i></button>
                     <div class="tooltip-text">Logout</div>
                 </span>
-            <i class="fas fa-question-circle"></i>
+            <span class="tooltip" data-tooltip="Support">
+                    <button id="Support-button"><i class="fas fa-question-circle"></i></button>
+                    <div class="tooltip-text">Support</div>
+                </span>
         </div>
     </nav>
 
@@ -66,7 +69,7 @@
         <ul class="menu">
             <li><i class="fas fa-lock menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
             <li><i class="fas fa-cog menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
+            <li><i class="fas fa-bug menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
@@ -81,8 +84,46 @@
 
     <!-- Content -->
     <div id="content" class="content">
-        <h1>Support</h1>
+        <h1>Contact Us</h1>
+        <div class="contact-form-wrapper">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="messageType">Reason</label>
+                    <select class="form-control select" id="messageType" name="messageType" required>
+                        <option value="" selected disabled>Select a support reason</option>
+                        <option value="bug">Report a Bug</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="support">Support Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+        <!-- Modal dialog box -->
+        <div id="modal" class="modal">
+            <div id="modal-content" class="modal-content">
+                <p>Support request sent!</p>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+        </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="footer">

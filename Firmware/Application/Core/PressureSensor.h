@@ -3,45 +3,30 @@
  *                                 D A R M O R ™
  *                             All Rights Reserved
  *******************************************************************************
- * @file        DataQueue.h
+ * @file        HumiditySensor.h
  * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
  * @author      Darren Morrison
- * @brief       Header file for data queue functionality.
+ * @brief       Header file for B-L475E pressure sensor initialization.
  ******************************************************************************/
 
-#ifndef DATAQUEUE_H_
-#define DATAQUEUE_H_
+#ifndef PRESSURESENSOR_H_
+#define PRESSURESENSOR_H_
 
 #ifdef __cplusplus
 extern "C"	{
 #endif
 
 /** INCLUDES ******************************************************************/
+#include "stm32l475e_iot01.h"
+#include "stm32l475e_iot01_psensor.h"
 
 
 /** CONSTANT AND MACRO DEFINITIONS ********************************************/
-typedef enum {
-	DATA_TYPE_TEMP,
-	DATA_TYPE_HUM,
-	DATA_TYPE_PRESSURE
-} eDataType;
-
-typedef struct {
-	eDataType  eType;
-	int  u8DataValue;
-	int  u8DataFloat;
-	uint32_t u32Timestamp;
-} tsData;
-
-extern tsData	g_acReadingBuffer[];
 
 
 /** PUBLIC FUNCTION PROTOTYPES ************************************************/
-void DataQueue_Init(void);
-void DataQueue_Add(eDataType, int, int);
-uint16_t DataQueue_GetCount(void);
-uint16_t DataQueue_Send(char *pDst, uint16_t maxBytes);
-
+void PressureSensor_Init(void);
+void PressureSensor_GetData();
 
 #ifdef __cplusplus
 }

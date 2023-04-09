@@ -39,6 +39,7 @@ void TimerCallback(TIM_HandleTypeDef *htim) {
 	// Measurement collection
 	TempSensor_GetData();
 	HumiditySensor_GetData();
+	PressureSensor_GetData();
 }
 
 /**************************************************************************//**
@@ -90,6 +91,10 @@ void AplusAPP_Init(void) {
 	// Initialize humidity sensor.
 	HumiditySensor_Init();
 	printf("Humidity sensor initialize.\r\n");
+
+	// Initialize pressure sensor.
+	PressureSensor_Init();
+	printf("Pressure sensor initialize.\r\n");
 
 	// Initialize data queue.
 	DataQueue_Init();

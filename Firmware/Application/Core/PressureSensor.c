@@ -6,13 +6,13 @@
  * @file        HumiditySensor.c
  * @copyright   COPYRIGHT (c) 2023 Darmor™. All rights reserved.
  * @author      Darren Morrison
- * @brief       Common humidity sensor functionality for the product firmware.
+ * @brief       Common pressure sensor functionality for the product firmware.
  ******************************************************************************/
 
 /** INCLUDES ******************************************************************/
 #include "driver_init.h"
 #include "AplusApp.h"
-#include "HumiditySensor.h"
+#include "PressureSensor.h"
 #include <math.h>
 
 /** VARIABLES *****************************************************************/
@@ -30,13 +30,13 @@
 /** PUBLIC FUNCTION IMPLEMENTATIONS *******************************************/
 
 /**************************************************************************//**
- *  Initializes humidity sensor for use.
+ *  Initializes pressure sensor for use.
  *  @param[in]  None
  *  @param[out] None
  *  @return     Nothing
  ******************************************************************************/
-void HumiditySensor_Init(void) {
-	BSP_HSENSOR_Init();
+void PressureSensor_Init(void) {
+	BSP_PSENSOR_Init();
 }
 
 
@@ -46,20 +46,30 @@ void HumiditySensor_Init(void) {
  *  @param[out] None
  *  @return     Nothing
  ******************************************************************************/
-void HumiditySensor_GetData(void) {
+void PressureSensor_GetData(void) {
 	// Init vars.
-	float fHumidityValue = 0;  // Measured humidity value
+	float fPressureValue = 0;  // Measured pressure value
 
 	// Get value.
-	fHumidityValue = BSP_HSENSOR_ReadHumidity();
+	fPressureValue = BSP_PSENSOR_ReadPressure();
 
-	// Data analysis.
-	int u8HumidityInt1 = fHumidityValue;
-	float fHumidityDecimal = fHumidityValue - u8HumidityInt1;
-	int u8HumidityInt2 = trunc(fHumidityDecimal * 100);
+	// Separate whole part and decimal part.
+	float decimalPart;
+	float wholePart;
+	decimalPart = modff(fPressureValue, &wholePart);
+
+	// Scale decimal part to fit in an int variable.
+	int decimalPartScaled = (int)(decimalPart * 100); // Change the scaling factor as needed
+
+	// Convert the whole part to an int.
+	int wholePartInt = (int)wholePart;
+
+	// Print the separated values.
+	printf("Whole part: %d\r\n", wholePartInt);
+	printf("Decimal part (scaled): %d\r\n", decimalPartScaled);
 
 	// Add to data queue.
-	DataQueue_Add(DATA_TYPE_HUM, u8HumidityInt1, u8HumidityInt2);
+	DataQueue_Add(DATA_TYPE_PRESSURE, wholePartInt, decimalPartScaled);
 }
 
 /** LOCAL (PRIVATE) FUNCTION IMPLEMENTATIONS **********************************/

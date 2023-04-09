@@ -59,18 +59,82 @@
     padding: 25px;
 }
 
+
 .content.menu-open {
     margin-left: 180px;
     padding: 25px;
 }
 
+
 #chart-container {
+    display: inline-block;
     height: 700px;
     transition: margin-left 0.5s ease-out;
-    width: 1500px;
+    width: 1300px;
 }
 
 #chart-container.menu-open {
+    display: inline-block;
     height: 700px;
-    width: 1500px;
+    width: 1300px;
+}
+
+#weather-container {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+}
+
+.weather-icon-container {
+    text-align: center;
+}
+
+#weather-icon {
+    width: 100px; /* Adjust the size as desired */
+    height: auto;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.section-text {
+    padding: 25px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.highlight {
+    font-weight: bold;
+    color: mediumvioletred;
+}
+
+.tech-items-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    width: calc(100% / 10); /* 11 items in one row */
+}
+
+.tech-logo {
+    height: 50px; /* Set a fixed height for all logos */
+    margin-bottom: 0.5rem;
+}
+
+.tech-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    margin: 0;
 }

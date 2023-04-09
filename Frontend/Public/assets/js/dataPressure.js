@@ -3,17 +3,17 @@
 // Hum: 1,
 
 //Define js object
-var TemperaturePoints = [];
+var PressurePoints = [];
 
 // Define the data to be sent in the POST request
-const dataTemp = {
+const dataPressure = {
     Cmd: "getdata",
-    DataType: "0",
+    DataType: "2",
 };
 
 const params = new URLSearchParams();
-params.append('Cmd', dataTemp.Cmd);
-params.append('DataType', dataTemp.DataType);
+params.append('Cmd', dataPressure.Cmd);
+params.append('DataType', dataPressure.DataType);
 
 // Set the URL of the server you want to send the POST request to
 const url = 'https://darmorgamz.ca/api.php?' + params.toString();
@@ -29,9 +29,9 @@ function sendPostRequest() {
         .then(response => response.json())
         .then(json => {
             const data = json.Data;
-            TemperaturePoints = data.Values;
-        })
+            PressurePoints = data.Values;
 
+        })
         .catch(error => console.error(error));
 }
 
@@ -57,7 +57,7 @@ function highchartSetup() {
                     var xAxis = this.xAxis[0];
                     setInterval(function () {
                         if (!chart.isZoomed) {
-                            series.setData(TemperaturePoints);
+                            series.setData(PressurePoints);
                             var currentTime = (new Date()).getTime();
                             var minTime = currentTime-(15*60*1000); // 15 minutes ago
                             var maxTime = currentTime; // current time
@@ -71,7 +71,7 @@ function highchartSetup() {
 
                         var series = this.series[0];
                         var xAxis = this.xAxis[0];
-                        series.setData(TemperaturePoints);
+                        series.setData(PressurePoints);
                         var currentTime = (new Date()).getTime();
                         var minTime = currentTime-(15*60*1000); // 15 minutes ago
                         var maxTime = currentTime; // current time
@@ -88,7 +88,7 @@ function highchartSetup() {
             }
         },
         title: {
-            text: 'Temperature'
+            text: 'Pressure'
         },
         xAxis: {
             title: {
@@ -102,7 +102,7 @@ function highchartSetup() {
         },
         yAxis: {
             title: {
-                text: '°C'
+                text: 'hPa'
             },
             labels: {
                 format: '{value:.2f}'
@@ -127,8 +127,8 @@ function highchartSetup() {
             enabled: false
         },
         series: [{
-            name: 'Temperature Data',
-            data: TemperaturePoints
+            name: 'Pressure Data',
+            data: PressurePoints
         }]
     });
 }

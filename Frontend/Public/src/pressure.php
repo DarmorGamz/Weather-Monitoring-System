@@ -12,9 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
+    <!-- Highcharts   -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/sessionkeycheck.js"></script>
-    <script src="../assets/js/configuration.js"></script>
+    <script src="../assets/js/dataPressure.js"></script>
+    <script src="../assets/js/weatherPressure.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -83,16 +90,27 @@
 
     <!-- Content -->
     <div id="content" class="content">
-        <h1>Configuration</h1>
-        <form>
-            <div class="form-group">
-                <input id="password-input" type="password" placeholder="Current Password">
+        <h1>Pressure</h1>
+        <br>
+        <div id="chart-container"></div>
+        <div id="weather-container">
+            <div class="weather-icon-container">
+                <img id="weather-icon" alt="Weather Icon">
             </div>
-            <div class="form-group">
-                <button id="delete-user-button" type="submit">Delete User</button>
-            </div>
-        </form>
+            <p>Pressure: <span id="weather-pressure"></span> hPa</p>
+            <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
+            <p>Wind Direction: <span id="weather-wind-dir"></span></p>
+            <p>Precipitation: <span id="weather-precip"></span> mm</p>
+            <p>Feels Like: <span id="weather-feelslike"></span> °C</p>
+            <p>Cloud Cover: <span id="weather-cloud"></span> %</p>
+        </div>
     </div>
+
+    <script src="../assets/js/dataPressure.js" type="text/javascript"></script>
+    <script>
+        sendPostRequest();
+        highchartSetup();
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
