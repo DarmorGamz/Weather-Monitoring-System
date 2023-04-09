@@ -21,6 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/sessionkeycheck.js"></script>
     <script src="../assets/js/dataTemperature.js"></script>
+    <script src="../assets/js/weatherTemperature.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -62,12 +63,13 @@
         <div class="login-button">
             <span id="UserEmail"></span>
             <span class="tooltip" data-tooltip="Logout">
-                <button id="login-button">
-                <i class="fas fa-lock"></i>
-            </button>
+                <button id="login-button"><i class="fas fa-lock"></i></button>
                 <div class="tooltip-text">Logout</div>
             </span>
-            <i class="fas fa-question-circle"></i>
+            <span class="tooltip" data-tooltip="Support">
+                <button id="Support-button"><i class="fas fa-question-circle"></i></button>
+                <div class="tooltip-text">Support</div>
+            </span>
         </div>
     </nav>
 
@@ -76,7 +78,7 @@
         <ul class="menu">
             <li><i class="fas fa-lock menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
             <li><i class="fas fa-cog menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
+            <li><i class="fas fa-bug menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
@@ -91,9 +93,20 @@
 
     <!-- Content -->
     <div id="content" class="content">
-        <h1>Temperature - <span id="clock"></span></h1>
+        <h1>Temperature</h1>
         <br>
         <div id="chart-container"></div>
+        <div id="weather-container">
+            <div class="weather-icon-container">
+                <img id="weather-icon" alt="Weather Icon">
+            </div>
+            <p>Temperature: <span id="weather-temp"></span> °C</p>
+            <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
+            <p>Wind Direction: <span id="weather-wind-dir"></span></p>
+            <p>Precipitation: <span id="weather-precip"></span> mm</p>
+            <p>Feels Like: <span id="weather-feelslike"></span> °C</p>
+            <p>Cloud Cover: <span id="weather-cloud"></span> %</p>
+        </div>
     </div>
 
     <script src="../assets/js/dataTemperature.js" type="text/javascript"></script>

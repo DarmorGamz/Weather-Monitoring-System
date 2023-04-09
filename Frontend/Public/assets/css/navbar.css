@@ -46,11 +46,28 @@ body {
     cursor: pointer;
 }
 
+#Support-button {
+    font-size: 20px;
+    background-color: darkturquoise;
+    color: white;
+    border: 0px;
+    cursor: pointer;
+}
+
 #login-button:hover {
     color: lightgrey;
 }
 
+#Support-button:hover {
+    color: lightgrey;
+}
+
 .login-button i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.Support-button i {
     font-size: 20px;
     margin-right: 5px;
 }
@@ -86,15 +103,16 @@ body {
     visibility: hidden;
     width: 50px;
     background-color: transparent;
-    color: lightgrey;
+    color: white;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
+    font-weight: bolder;
 
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
-    bottom: -40%;
+    bottom: -160%;
     left: 40%;
     margin-left: -60px;
 }
