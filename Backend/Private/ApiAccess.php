@@ -178,6 +178,26 @@ final class ApiAccess {
                 curl_close($ch);
 
                 $this->aResp['Weather'] = json_decode($response);
+            } else if ($aVarsIn['DataType'] == 11) {
+                $iDate = "";
+                if(!$this->GetInputVar('Date', $iDate)) { $this->SetError(2, "Invalid Input vars."); return false; }
+
+                $apiUrl = "http://api.weatherapi.com/v1/history.json?key=d42a68e851d7453c8d6165458230904&q=Toronto&dt={$iDate}"; // Replace this with the target API URL
+                $postData = file_get_contents('php://input');
+
+                $ch = curl_init($apiUrl);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                        'Content-Type: application/json',
+                        'Content-Length: ' . strlen($postData))
+                );
+
+                $response = curl_exec($ch);
+                curl_close($ch);
+
+                $this->aResp['Weather'] = json_decode($response);
             }
 
 
@@ -282,6 +302,12 @@ final class ApiAccess {
 
                 // Returns the valid DataType.
                 $IpVarOut = $this->aIpVar['DataType'];
+                break;
+            case "Date":
+                // Checks if Date is valid.
+                if(!isset($this->aIpVar['Date']) || empty($this->aIpVar['Date'])) return false;
+                // Returns the Date email.
+                $IpVarOut = $this->aIpVar['Date'];
                 break;
 
             default:
