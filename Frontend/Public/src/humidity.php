@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DCA</title>
+    <title>A+ - Humidity</title>
 
     <link rel="stylesheet" type="text/css" href="../assets/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/hamburgermenu.css">
@@ -77,12 +77,6 @@
             <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
             <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
             <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
             <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
             <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
@@ -93,18 +87,22 @@
     <div id="content" class="content">
         <h1>Humidity</h1>
         <br>
-        <div id="chart-container"></div>
-        <div id="weather-container">
-            <div class="weather-icon-container">
-                <img id="weather-icon" alt="Weather Icon">
-            </div><br>
-            <p>Last Year's Relative Humidity this hour: <span id="humidity-lastyear"></span> %RH</p> <br>
-            <p>Humidity: <span id="weather-humidity"></span> % RH</p>
-            <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
-            <p>Wind Direction: <span id="weather-wind-dir"></span></p>
-            <p>Precipitation: <span id="weather-precip"></span> mm</p>
-            <p>Feels Like: <span id="weather-feelslike"></span> °C</p>
-            <p>Cloud Cover: <span id="weather-cloud"></span> %</p>
+        <div class="align-container">
+            <div id="chart-container"></div>
+            <div id="weather-container" class="weather-container">
+                <div class="weather-icon-container">
+                    <img id="weather-icon" alt="Weather Icon">
+                </div>
+                <div class="stats-container">
+                    <p>Last Year's Relative Humidity this hour:<br><span id="humidity-lastyear"></span> %RH</p> <br>
+                    <p>Humidity: <span id="weather-humidity"></span> % RH</p>
+                    <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
+                    <p>Wind Direction: <span id="weather-wind-dir"></span></p>
+                    <p>Precipitation: <span id="weather-precip"></span> mm</p>
+                    <p>Feels Like: <span id="weather-feelslike"></span> °C</p>
+                    <p>Cloud Cover: <span id="weather-cloud"></span> %</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -116,7 +114,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <span>&copy; 2023 DCA</span>
+        <span>&copy; 2023 A+ Interface</span>
     </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DCA</title>
+    <title>A+ - Config</title>
 
     <link rel="stylesheet" type="text/css" href="../assets/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/hamburgermenu.css">
@@ -69,12 +69,6 @@
             <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
             <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
             <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
             <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
             <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
@@ -111,7 +105,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <span>&copy; 2023 DCA</span>
+        <span>&copy; 2023 A+ Interface</span>
     </footer>
 </body>
 </html>

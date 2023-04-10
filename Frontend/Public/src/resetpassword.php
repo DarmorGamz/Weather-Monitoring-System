@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DCA</title>
+    <title>Reset Password</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/resetpassword.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
@@ -54,7 +54,7 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <span>Copyright &copy; 2023 DCA</span>
+    <span>Copyright &copy; 2023 A+ Interface</span>
 </footer>
 </body>
 </html>
