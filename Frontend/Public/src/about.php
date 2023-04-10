@@ -39,7 +39,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar sticky">
         <!-- Hamburger menu icon -->
         <button id="menu-toggle" class="menu-toggle">
             <i class="fas fa-bars"></i>

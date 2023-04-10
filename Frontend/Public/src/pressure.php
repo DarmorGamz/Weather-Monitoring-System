@@ -22,6 +22,7 @@
     <script src="../assets/js/sessionkeycheck.js"></script>
     <script src="../assets/js/dataPressure.js"></script>
     <script src="../assets/js/weatherPressure.js"></script>
+    <script src="../assets/js/historyPressure.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -47,7 +48,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar sticky">
         <!-- Hamburger menu icon -->
         <button id="menu-toggle" class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -96,7 +97,8 @@
         <div id="weather-container">
             <div class="weather-icon-container">
                 <img id="weather-icon" alt="Weather Icon">
-            </div>
+            </div><br>
+            <p>Last Year's Pressure this hour: <span id="pressure-lastyear"></span> hPa</p> <br>
             <p>Pressure: <span id="weather-pressure"></span> hPa</p>
             <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
             <p>Wind Direction: <span id="weather-wind-dir"></span></p>
