@@ -60,29 +60,29 @@
         <div class="login-button">
             <span id="UserEmail"></span>
             <span class="tooltip" data-tooltip="Logout">
-                    <button id="login-button"><i class="fas fa-lock"></i></button>
-                    <div class="tooltip-text">Logout</div>
-                </span>
+                        <button id="login-button"><i class="fas fa-lock"></i></button>
+                        <div class="tooltip-text">Logout</div>
+                    </span>
             <span class="tooltip" data-tooltip="Support">
-                    <button id="Support-button"><i class="fas fa-question-circle"></i></button>
-                    <div class="tooltip-text">Support</div>
-                </span>
+                        <button id="Support-button"><i class="fas fa-question-circle"></i></button>
+                        <div class="tooltip-text">Support</div>
+                    </span>
         </div>
     </nav>
 
     <!-- Menu -->
     <div id="menu-container" class="menu-container">
         <ul class="menu">
-            <li><i class="fas fa-lock menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
-            <li><i class="fas fa-cog menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
+            <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
+            <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
+            <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-lock menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
+            <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
             <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
             <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
         </ul>

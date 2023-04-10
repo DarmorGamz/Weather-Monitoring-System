@@ -67,16 +67,16 @@
     <!-- Menu -->
     <div id="menu-container" class="menu-container">
         <ul class="menu">
-            <li><i class="fas fa-lock menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
-            <li><i class="fas fa-cog menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
+            <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
+            <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
+            <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-lock menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
+            <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
             <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
             <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
         </ul>
@@ -85,6 +85,7 @@
     <!-- Content -->
     <div id="content" class="content">
         <h1>Contact Us</h1>
+        <p class="section-text">If you have any questions, need assistance, or want to provide feedback, please fill out the contact form below. Our support team will respond to your inquiry as soon as possible. We value your input and appreciate your patience.</p>
         <div class="contact-form-wrapper">
             <form class="contact-form">
                 <div class="form-group">
@@ -103,9 +104,9 @@
                     <label for="messageType">Reason</label>
                     <select class="form-control select" id="messageType" name="messageType" required>
                         <option value="" selected disabled>Select a support reason</option>
-                        <option value="bug">Report a Bug</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="support">Support Inquiry</option>
+                        <option value="1">Report a Bug</option>
+                        <option value="2">Feedback</option>
+                        <option value="3">Support Inquiry</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -118,7 +119,7 @@
         <!-- Modal dialog box -->
         <div id="modal" class="modal">
             <div id="modal-content" class="modal-content">
-                <p>Support request sent!</p>
+                <p>Thank you for contacting us!</p>
                 <button class="modal-close-btn">&times;</button>
             </div>
         </div>
