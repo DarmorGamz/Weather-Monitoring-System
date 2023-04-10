@@ -64,9 +64,6 @@ void PressureSensor_GetData(void) {
 	// Convert the whole part to an int.
 	int wholePartInt = (int)wholePart;
 
-	// Print the separated values.
-	printf("Whole part: %d\r\n", wholePartInt);
-	printf("Decimal part (scaled): %d\r\n", decimalPartScaled);
 
 	// Add to data queue.
 	DataQueue_Add(DATA_TYPE_PRESSURE, wholePartInt, decimalPartScaled);

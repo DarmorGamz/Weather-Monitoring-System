@@ -94,7 +94,6 @@ class DataDb extends Db {
             if(!isset($aVarsIn['DataType']) || empty($aVarsIn['DateMsUtcStop']) || empty($aVarsIn['DateMsUtcStart'])) { /* Error */ return false; }
             $iDataType = $aVarsIn['DataType'];
 
-
             $sQry = "SELECT * FROM WeatherData WHERE 1 AND DataType={$iDataType} AND DateMsUtc<={$aVarsIn['DateMsUtcStop']} AND DateMsUtc>={$aVarsIn['DateMsUtcStart']} ORDER BY Id DESC LIMIT 900";
             if(($oRes = $this->oDb->query($sQry)) === false) { /* Error */ return false; }
             while($aRow = $oRes->fetch_assoc()) { $aVarsOut['Data'][] = $aRow; }

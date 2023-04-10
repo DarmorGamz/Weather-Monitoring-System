@@ -3,6 +3,15 @@
 // Feedback 2,
 // Support 3,
 // Wait for the DOM to finish loading
+// Function to set the modal height to match the contact form height
+function setModalHeight() {
+    const contactForm = document.querySelector('.contact-form');
+    const modal = document.querySelector('.modal');
+    const contactFormHeight = getComputedStyle(contactForm).height;
+
+    modal.style.height = contactFormHeight;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get the form and submit button
     const form = document.querySelector('.contact-form');
@@ -14,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Define the aContact object with default values
     const aContact = {
-        Cmd: 'Support.Add',
+        Cmd: 'Contact.Add',
         FirstName: '',
         LastName: '',
         Email: '',
@@ -36,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             firstName.value.trim() === '' ||
             lastName.value.trim() === '' ||
             email.value.trim() === '' ||
-            messageType.value === '' ||
+            messageType.value === 0 ||
             message.value.trim() === ''
         ) {
             alert('Please fill in all fields');
@@ -103,3 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
     });
 });
+// Set the modal height when the page loads
+window.addEventListener('DOMContentLoaded', setModalHeight);
+
+// Update the modal height when the window is resized
+window.addEventListener('resize', setModalHeight);

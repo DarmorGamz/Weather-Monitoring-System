@@ -53,29 +53,29 @@
         <div class="login-button">
             <span id="UserEmail"></span>
             <span class="tooltip" data-tooltip="Logout">
-                    <button id="login-button"><i class="fas fa-lock"></i></button>
-                    <div class="tooltip-text">Logout</div>
-                </span>
+                        <button id="login-button"><i class="fas fa-lock"></i></button>
+                        <div class="tooltip-text">Logout</div>
+                    </span>
             <span class="tooltip" data-tooltip="Support">
-                    <button id="Support-button"><i class="fas fa-question-circle"></i></button>
-                    <div class="tooltip-text">Support</div>
-                </span>
+                        <button id="Support-button"><i class="fas fa-question-circle"></i></button>
+                        <div class="tooltip-text">Support</div>
+                    </span>
         </div>
     </nav>
 
     <!-- Menu -->
     <div id="menu-container" class="menu-container">
         <ul class="menu">
-            <li><i class="fas fa-lock menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
-            <li><i class="fas fa-cog menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-bug menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
+            <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
+            <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
+            <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
             <li><i class="fas fa-bug menuicons"></i><a href="#">N/A</a></li>
-            <li><i class="fas fa-lock menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
+            <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
             <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
             <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
         </ul>
@@ -84,14 +84,29 @@
     <!-- Content -->
     <div id="content" class="content">
         <h1>Configuration</h1>
-        <form>
-            <div class="form-group">
-                <input id="password-input" type="password" placeholder="Current Password">
+        <div class="profile-container">
+            <div class="profile-picture">
+                <img src="../assets/img/Avatar1.jpg" alt="Profile Picture" class="profile-image">
             </div>
-            <div class="form-group">
-                <button id="delete-user-button" type="submit">Delete User</button>
+            <div class="user-info-container">
+                <div class="user-info">
+                    <div class="user-info-info">
+                        <label>First Name:</label>
+                        <input type="text" id="firstname" name="firstname" value="John" readonly>
+                    </div>
+                    <div class="user-info-info">
+                        <label>Last Name:</label>
+                        <input type="text" id="lastname" name="lastname" value="Doe" readonly>
+                    </div>
+                </div>
+                <div class="user-info">
+                    <div class="user-info-info">
+                        <label>Email:</label>
+                        <input type="text" id="email" name="email" value="john.doe@example.com" readonly>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <!-- Footer -->
