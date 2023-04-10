@@ -1,6 +1,6 @@
 // Define the date
 var d = new Date();
-var date = d.getFullYear() + "-" + d.getHours() + "-" + d.getDay();
+var date = d.toISOString().slice(0,10);
 
 // Define the data to be sent in the POST request
 const dataWeatherHist = {

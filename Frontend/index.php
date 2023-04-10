@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DCA</title>
+    <title>A+ - Log In</title>
     <link rel="stylesheet" type="text/css" href="Public/assets/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="Public/assets/css/loginform.css">
 
@@ -51,7 +51,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <span>Copyright &copy; 2023 DCA</span>
+        <span>Copyright &copy; 2023 A+ Interface</span>
     </footer>
 </body>
 </html>
