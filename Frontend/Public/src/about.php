@@ -65,12 +65,18 @@
     <!-- Menu -->
     <div id="menu-container" class="menu-container">
         <ul class="menu">
-            <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
-            <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
-            <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
-            <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
-            <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
+            <a href="homepage.php#Temperature"><li><i class="fas fa-temperature-high menuicons"></i>Temperature</li></a>
+            <a href="humidity.php#Humidity"><li><i class="fas fa-temperature-low menuicons"></i>Humidity</li></a>
+            <a href="pressure.php#Pressure"><li><i class="fas fa-thermometer menuicons"></i>Pressure</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="configuration.php#Configuration"><li><i class="fas fa-cog menuicons"></i>Configuration</li></a>
+            <a href="about.php#About"><li><i class="fas fa-graduation-cap menuicons"></i>About</li></a>
+            <a href="support.php#Support"><li><i class="fas fa-question-circle menuicons"></i>Support</li></a>
         </ul>
     </div>
 

@@ -31,11 +31,13 @@
             const menuContainer = document.getElementById('menu-container');
             const contentContainer = document.getElementById('content');
             const chartcontainer = document.getElementById('chart-container');
+            const weathercontainer = document.getElementById('weather-container');
 
             // Opens menu on default
             menuContainer.classList.add('active');
             contentContainer.classList.add('menu-open');
             chartcontainer.classList.add('menu-open');
+            weathercontainer.classList.add('menu-open');
 
             // Add a click event listener to the menu toggle button
             menuToggle.addEventListener('click', function() {
@@ -45,6 +47,7 @@
                 // Add/remove the 'menu-open' class to the content container to adjust the margin left
                 contentContainer.classList.toggle('menu-open');
                 chartcontainer.classList.toggle('menu-open');
+                weathercontainer.classList.toggle('menu-open');
             });
         });
     </script>
@@ -64,25 +67,31 @@
         <div class="login-button">
             <span id="UserEmail"></span>
             <span class="tooltip" data-tooltip="Logout">
-                        <button id="login-button"><i class="fas fa-lock"></i></button>
-                        <div class="tooltip-text">Logout</div>
-                    </span>
+                    <button id="login-button"><i class="fas fa-lock"></i></button>
+                    <div class="tooltip-text">Logout</div>
+                </span>
             <span class="tooltip" data-tooltip="Support">
-                        <button id="Support-button"><i class="fas fa-question-circle"></i></button>
-                        <div class="tooltip-text">Support</div>
-                    </span>
+                    <button id="Support-button"><i class="fas fa-question-circle"></i></button>
+                    <div class="tooltip-text">Support</div>
+                </span>
         </div>
     </nav>
 
     <!-- Menu -->
     <div id="menu-container" class="menu-container">
         <ul class="menu">
-            <li><i class="fas fa-temperature-high menuicons"></i><a href="homepage.php#Temperature">Temperature</a></li>
-            <li><i class="fas fa-temperature-low menuicons"></i><a href="humidity.php#Humidity">Humidity</a></li>
-            <li><i class="fas fa-thermometer menuicons"></i><a href="pressure.php#Pressure">Pressure</a></li>
-            <li><i class="fas fa-cog menuicons"></i><a href="configuration.php#Configuration">Configuration</a></li>
-            <li><i class="fas fa-graduation-cap menuicons"></i><a href="about.php#About">About</a></li>
-            <li><i class="fas fa-question-circle menuicons"></i><a href="support.php#Support">Support</a></li>
+            <a href="homepage.php#Temperature"><li><i class="fas fa-temperature-high menuicons"></i>Temperature</li></a>
+            <a href="humidity.php#Humidity"><li><i class="fas fa-temperature-low menuicons"></i>Humidity</li></a>
+            <a href="pressure.php#Pressure"><li><i class="fas fa-thermometer menuicons"></i>Pressure</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="#"><li><i class="fas fa-bug menuicons"></i>N/A</li></a>
+            <a href="configuration.php#Configuration"><li><i class="fas fa-cog menuicons"></i>Configuration</li></a>
+            <a href="about.php#About"><li><i class="fas fa-graduation-cap menuicons"></i>About</li></a>
+            <a href="support.php#Support"><li><i class="fas fa-question-circle menuicons"></i>Support</li></a>
         </ul>
     </div>
 
@@ -109,7 +118,6 @@
         </div>
     </div>
 
-    <script src="../assets/js/dataTemperature.js" type="text/javascript"></script>
     <script>
         sendPostRequest();
         highchartSetup();

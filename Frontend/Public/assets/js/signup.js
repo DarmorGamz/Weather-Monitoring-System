@@ -55,7 +55,7 @@ $(document).ready(function() {
             // Handle the response from the server
             console.log(response);
 
-            if (!response.Errors || response.Errors.length !== 0) { alert("Failed to create user1."); return; }
+            if (!response.Errors || response.Errors.length !== 0) { alert("Failed to create user."); return; }
             var aUserInfo = response.UserInfo;
 
             if(!aUserInfo.Id) { alert("Failed to create user."); return; }
@@ -65,6 +65,19 @@ $(document).ready(function() {
 
             // store session key cookie for 5 minutes
             setCookie("sessionKey", sessionKey, 10);
+
+            // Remove the username cookie
+            document.cookie = 'username=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+
+            // Remove the password cookie
+            document.cookie = 'password=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+
+            // create a cookie that doesn't expire
+            const cookieString = `username=${Email}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+            document.cookie = cookieString;
+
+            const cookieString2 = `password=${Password}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+            document.cookie = cookieString2;
 
             // Redirect to dashboard or do something else
             window.location.replace("/Public/src/homepage.php");

@@ -45,9 +45,8 @@ setInterval(checkSessionKey, 60000);
 
 $(document).ready(function() {
     var username = getCookie("username");
-    console.log(username);
     if (username !== "") {
-        $("#UserEmail").text(username);
+        document.getElementById('UserEmail').innerText = username;
     }
     setTimeout(function() { checkSessionKey(); }, 500); // wait for 500 milliseconds (0.5 seconds) before calling checkSessionKey()
 
