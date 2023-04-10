@@ -1,4 +1,5 @@
 .menu-container {
+    overflow: hidden;
     position: fixed;
     top: 55px;
     left: -180px;
@@ -72,9 +73,9 @@
 
 #chart-container {
     display: inline-block;
-    height: 700px;
+    height: 27.3%;
     transition: margin-left 0.5s ease-out;
-    width: 1300px;
+    width: 90.3%;
 }
 
 #chart-container.menu-open {

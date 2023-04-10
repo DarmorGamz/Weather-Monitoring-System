@@ -22,6 +22,7 @@
     <script src="../assets/js/sessionkeycheck.js"></script>
     <script src="../assets/js/dataTemperature.js"></script>
     <script src="../assets/js/weatherTemperature.js"></script>
+    <script src="../assets/js/historyTemperature.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -50,7 +51,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar sticky">
         <!-- Hamburger menu icon -->
         <button id="menu-toggle" class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -100,6 +101,8 @@
             <div class="weather-icon-container">
                 <img id="weather-icon" alt="Weather Icon">
             </div>
+            <br>
+            <p>Last Year's Temp Today this hour: <span id="weather-lastyear"></span> °C</p> <br>
             <p>Temperature: <span id="weather-temp"></span> °C</p>
             <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
             <p>Wind Direction: <span id="weather-wind-dir"></span></p>

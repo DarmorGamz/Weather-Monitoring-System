@@ -6,7 +6,6 @@
 
 body {
     background-color: dimgrey;
-    overflow: hidden;
 }
 
 .navbar {
@@ -19,6 +18,12 @@ body {
     padding: 5px 10px;
     width: 100%;
     z-index: 999;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .logo-container {

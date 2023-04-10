@@ -22,6 +22,7 @@
     <script src="../assets/js/sessionkeycheck.js"></script>
     <script src="../assets/js/dataHumidity.js"></script>
     <script src="../assets/js/weatherHumidity.js"></script>
+    <script src="../assets/js/historyHumidity.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -47,7 +48,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar sticky">
         <!-- Hamburger menu icon -->
         <button id="menu-toggle" class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -96,7 +97,8 @@
         <div id="weather-container">
             <div class="weather-icon-container">
                 <img id="weather-icon" alt="Weather Icon">
-            </div>
+            </div><br>
+            <p>Last Year's Relative Humidity this hour: <span id="humidity-lastyear"></span> %RH</p> <br>
             <p>Humidity: <span id="weather-humidity"></span> % RH</p>
             <p>Wind Speed: <span id="weather-wind-speed"></span> kph</p>
             <p>Wind Direction: <span id="weather-wind-dir"></span></p>

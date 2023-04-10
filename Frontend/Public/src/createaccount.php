@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar sticky">
         <!-- Logo -->
         <img src="../assets/img/logo.png" alt="Logo">
         <!-- Login button -->
