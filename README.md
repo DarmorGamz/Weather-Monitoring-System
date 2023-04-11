@@ -13,9 +13,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/DarmorGamz/IoT-Weather-Monitoring-System">
-    <img src="images/icon.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="125" height="125">
   </a>
-
 <h3 align="center">Weather Monitoring System</h3>
 
   <p align="center">
@@ -61,8 +60,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
+![product-screenshot]
+![product-screenshot2]
 
 
 ### Built With
@@ -149,7 +148,8 @@ Project Link: [https://github.com/DarmorGamz/IoT-Weather-Monitoring-System](http
 [license-url]: https://github.com/DarmorGamz/IoT-Weather-Monitoring-System/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/darren--morrison
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/ScreenshotExample1.png
+[product-screenshot2]: images/ScreenshotExample2.png
 
 [C.com]: https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white
 [C-url]: https://www.cprogramming.com
